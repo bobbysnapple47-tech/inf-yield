@@ -5719,50 +5719,48 @@ function ESP(plr, logic)
     					["Janitor"] = Color3.fromRGB(191, 191, 191),
    						["Head Researcher"] = Color3.fromRGB(255, 226, 119),
     					["Researcher"] = Color3.fromRGB(255, 206, 77),
-					
     					["MTF Cadet"] = Color3.fromRGB(0, 174, 255),
     					["MTF Commander"] = Color3.fromRGB(0, 140, 255),
     					["MTF Lieutenant"] = Color3.fromRGB(0, 160, 255),
     					["MTF Medic"] = Color3.fromRGB(135, 190, 255),
     					["MTF Sniper"] = Color3.fromRGB(115, 180, 255),
     					["MTF Specialist"] = Color3.fromRGB(95, 160, 255),
-
 						["CI Delta"] = Color3.fromRGB(0, 60, 10),
 					    ["CI Beta"] = Color3.fromRGB(0, 100, 0),
 					    ["CI Alpha"] = Color3.fromRGB(0, 120, 0),
 						["CI Gamma"] = Color3.fromRGB(0, 80, 0),
-
 					    ["SCP-049"] = Color3.fromRGB(255, 38, 38),
 					    ["SCP-049-2"] = Color3.fromRGB(255, 64, 64),
 					    ["SCP-096"] = Color3.fromRGB(255, 92, 92),
 					    ["SCP-106"] = Color3.fromRGB(180, 70, 70),
 					    ["SCP-173"] = Color3.fromRGB(255, 51, 51),
 					    ["SCP-1507"] = Color3.fromRGB(255, 130, 210),
-
-
 					    ["SCP-1770"] = Color3.fromRGB(255, 210, 190),
 					    ["SCP-1770-1"] = Color3.fromRGB(255, 210, 190),
 					    ["SCP-247-J"] = Color3.fromRGB(255, 245, 200),
 					    ["SCP-457"] = Color3.fromRGB(255, 140, 120),
 					    ["SCP-610"] = Color3.fromRGB(255, 0, 0),
 					    ["SCP-939"] = Color3.fromRGB(255, 120, 120),
-
 						["Facility Guard"] = Color3.fromRGB(150, 150, 150),
 					    ["Security Chief"] = Color3.fromRGB(200, 200, 200),
 					    ["Serpents Hand"] = Color3.fromRGB(170, 220, 190),
-
 					    ["Skeleton"] = Color3.fromRGB(255, 210, 120),
 					    ["Spirit"] = Color3.fromRGB(220, 220, 220),
-
 					    ["TEAM [1]"] = Color3.fromRGB(170, 210, 255),
 					    ["TEAM [2]"] = Color3.fromRGB(255, 170, 80),
 					    ["TEAM [3]"] = Color3.fromRGB(80, 255, 80),
 					    ["TEAM [4]"] = Color3.fromRGB(255, 130, 130),
-
 				    	["Tutorial"] = Color3.fromRGB(220, 220, 220),
 					    ["Zombie"] = Color3.fromRGB(80, 255, 80),
 					}
-					a.FillColor = colort[plr:GetAttribute("teamname")]
+
+					local myTeam = LocalPlayer:GetAttribute("teamname")
+					local theirTeam = plr:GetAttribute("teamname")
+					if myTeam and theirTeam and myTeam == theirTeam then
+						a.FillColor = Color3.fromRGB(144, 238, 144)
+					else
+						a.FillColor = colort[theirTeam]
+					end
 				end
 			end
 			if plr.Character and plr.Character:FindFirstChild('Head') then
